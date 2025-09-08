@@ -54,8 +54,9 @@
     /* Footer */
     footer{padding:28px 0;color:var(--muted);border-top:1px solid rgba(255,255,255,0.02);text-align:center}
 
-    /* Animacja Lottie */
+    /* Lottie box */
     .anim-box{background:linear-gradient(180deg,rgba(255,255,255,0.01),rgba(255,255,255,0.02));border-radius:12px;padding:12px;border:1px dashed rgba(255,255,255,0.03);display:grid;place-items:center;height:240px}
+    .small{font-size:14px;color:var(--muted)}
 
     @media (max-width:880px){.hero{grid-template-columns:1fr;gap:18px}.brand img{height:44px}.nav-inner{padding:10px}}
   </style>
@@ -83,18 +84,31 @@
     <section class="hero">
       <div class="hero-left">
         <h2>TechCodeStudio — Nowoczesne studio technologiczne</h2>
-        <p class="lead">
-Tworzymy innowacyjne rozwiązania cyfrowe dla klientów na całym świecie. Specjalizujemy się w aplikacjach mobilnych, stronach internetowych oraz produktach cyfrowych opartych o sztuczną inteligencję i automatyzację.<br><br>
-Naszą misją jest łączenie technologii i kreatywności, aby dostarczać rozwiązania, które realnie wspierają biznes i użytkowników.
-        </p>
+       <p class="lead">
+🌍 Opis firmy TechCodeStudio  
+
+TechCodeStudio to nowoczesne studio technologiczne, które tworzy innowacyjne rozwiązania cyfrowe dla klientów na całym świecie. Specjalizujemy się w:  
+• projektowaniu i tworzeniu aplikacji mobilnych i webowych,  
+• budowaniu stron internetowych szytych na miarę,  
+• rozwijaniu własnych produktów cyfrowych opartych o sztuczną inteligencję i automatyzację.  
+
+Naszą misją jest łączenie technologii i kreatywności, aby dostarczać rozwiązania, które nie tylko wyglądają nowocześnie, ale przede wszystkim realnie wspierają biznes i użytkowników.  
+
+Dzięki globalnemu podejściu i pracy w środowisku online obsługujemy klientów z Polski, Europy i całego świata. Każdy projekt traktujemy indywidualnie – od analizy potrzeb, przez projekt graficzny i implementację, aż po długofalowe wsparcie techniczne.  
+
+💡 TechCodeStudio – Tworzymy technologię, która napędza przyszłość.
+</p>
+
         <div class="actions">
           <button class="btn btn-cta" onclick="scrollToSection('contact')">Skontaktuj się z nami</button>
         </div>
       </div>
-      <div>
-        <div class="anim-box" id="heroAnimation">
-          <!-- miejsce na animację Lottie JSON -->
-          <div style="color:var(--muted)">animation_techcodestudio</div>
+     <div>
+        <div class="anim-box">
+          <div id="lottieContainer" style="width:100%;height:240px"></div>
+        </div>
+        <div style="margin-top:12px;color:var(--muted);font-size:13px;text-align:center">
+          
         </div>
       </div>
     </section>
@@ -119,21 +133,23 @@ TechCodeStudio to nowoczesne studio technologiczne, które tworzy innowacyjne ro
         <div class="card">
          <h4>TaxMindAi</h4>
 <p class="muted">
-🚀 <strong>Nasz autorski projekt – TaxMindAi</strong><br><br>
+🚀 Nasz autorski projekt – TaxMindAi  
 
-W TechCodeStudio nie tylko tworzymy rozwiązania dla naszych klientów, ale również rozwijamy własne produkty cyfrowe. Jednym z nich jest aplikacja <strong>TaxMindAi</strong> – innowacyjne narzędzie, które łączy nowoczesne technologie z prostotą użytkowania.<br><br>
+W TechCodeStudio nie tylko tworzymy rozwiązania dla naszych klientów, ale również rozwijamy własne produkty cyfrowe. Jednym z nich jest aplikacja TaxMindAi – innowacyjne narzędzie, które łączy nowoczesne technologie z prostotą użytkowania.  
 
-👉 <strong>Czym jest TaxMindAi?</strong><br>
-TaxMindAi to inteligentna aplikacja wspierająca użytkowników w zarządzaniu podatkami, finansami i planowaniem. Dzięki zastosowaniu algorytmów sztucznej inteligencji zapewnia szybki dostęp do kluczowych informacji oraz praktyczne rozwiązania w codziennym życiu.<br><br>
+👉 Czym jest TaxMindAi?  
+TaxMindAi to inteligentna aplikacja wspierająca użytkowników w zarządzaniu podatkami, finansami i planowaniem. Dzięki zastosowaniu algorytmów sztucznej inteligencji zapewnia szybki dostęp do kluczowych informacji oraz praktyczne rozwiązania w codziennym życiu.  
 
-👉 <strong>Co wyróżnia TaxMindAi?</strong><br>
-• Intuicyjny interfejs i prostota obsługi<br>
-• Możliwość działania globalnego<br>
-• W pełni responsywna aplikacja działająca na różnych urządzeniach<br>
-• Dostępna przez stronę internetową: <a href="https://taxmindai.github.io/TaxMindAi/?utm_source=chatgpt.com" target="_blank">TaxMindAi</a><br><br>
+👉 Co wyróżnia TaxMindAi?  
+Intuicyjny interfejs i prostota obsługi,  
+Możliwość działania globalnego,  
+W pełni responsywna aplikacja działająca na różnych urządzeniach,  
+Dostępna przez stronę internetową: <a href="https://taxmindai.github.io/TaxMindAi/" target="_blank">TaxMindAi</a>.  
 
-Dzięki temu projektowi udowadniamy, że potrafimy tworzyć własne, skalowalne rozwiązania, które mogą funkcjonować globalnie i odpowiadać na realne potrzeby użytkowników.
+Dzięki temu projektowi udowadniamy, że potrafimy tworzyć własne, skalowalne rozwiązania, które mogą funkcjonować globalnie i odpowiadać na realne potrzeby użytkowników.  
+
 </p>
+
 
         </div>
         <!-- kolejne projekty można łatwo dodać -->
@@ -145,6 +161,7 @@ Dzięki temu projektowi udowadniamy, że potrafimy tworzyć własne, skalowalne 
   <section id="contact" class="container">
     <h3 class="section-title">Kontakt</h3>
     <p class="lead">Skontaktuj się z nami w sprawie projektów i współpracy:</p>
+    <p>Kontakt e-mail: <a href="mailto:techcodestudio@gmail.com">techcodestudio@gmail.com</a></p>`
     <form style="display:flex;flex-direction:column;gap:12px;max-width:500px;margin:0 auto">
       <input type="text" placeholder="Imię i nazwisko" required style="padding:10px;border-radius:8px;border:none;background:var(--card);color:var(--text)">
       <input type="email" placeholder="E-mail" required style="padding:10px;border-radius:8px;border:none;background:var(--card);color:var(--text)">
