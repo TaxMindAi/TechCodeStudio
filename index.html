@@ -6,110 +6,122 @@
   <title>TechCodeStudio</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.6/lottie.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.3/dist/tailwind.min.css" rel="stylesheet">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .gradient-btn {
+      background: linear-gradient(135deg, #004d40, #00796b);
+      transition: all 0.3s ease;
+    }
+    .gradient-btn:hover {
+      background: linear-gradient(135deg, #00796b, #004d40);
+      transform: translateY(-2px);
+    }
+    .gold-text {
+      color: #d4af37;
+    }
+    .hero-bg {
+      background: linear-gradient(rgba(0, 61, 43, 0.9), rgba(0, 61, 43, 0.9)),
+                  url('bg-tech.jpg') center/cover no-repeat;
+    }
+  </style>
 </head>
 <body class="font-sans text-gray-800">
 
   <!-- Header -->
-  <header class="bg-gray-900 text-white">
+  <header class="bg-gray-900 text-white sticky top-0 z-50 shadow-lg">
     <div class="container mx-auto flex justify-between items-center p-4">
       <div class="flex items-center">
         <img src="logo_techcodestudio.png" alt="TechCodeStudio" class="h-12 mr-3">
-        <span class="font-bold text-xl">TechCodeStudio</span>
+        <span class="font-bold text-xl gold-text">TechCodeStudio</span>
       </div>
-      <nav class="space-x-6">
-        <a href="#about" class="hover:text-blue-400">O nas</a>
-        <a href="#services" class="hover:text-blue-400">Usługi</a>
-        <a href="#projects" class="hover:text-blue-400">Projekty</a>
-        <a href="#contact" class="hover:text-blue-400">Kontakt</a>
+      <nav class="hidden md:flex space-x-6">
+        <a href="#about" class="hover:text-[#d4af37] transition">O nas</a>
+        <a href="#services" class="hover:text-[#d4af37] transition">Usługi</a>
+        <a href="#projects" class="hover:text-[#d4af37] transition">Projekty</a>
+        <a href="#contact" class="hover:text-[#d4af37] transition">Kontakt</a>
       </nav>
+      <!-- Mobile menu -->
+      <div class="md:hidden">
+        <button id="menu-btn" class="text-white text-2xl">☰</button>
+      </div>
     </div>
+    <nav id="mobile-menu" class="hidden flex-col bg-gray-800 text-white space-y-4 p-4 md:hidden">
+      <a href="#about">O nas</a>
+      <a href="#services">Usługi</a>
+      <a href="#projects">Projekty</a>
+      <a href="#contact">Kontakt</a>
+    </nav>
   </header>
 
   <!-- Hero -->
-  <section class="bg-gray-100 py-20">
+  <section class="hero-bg text-white py-32">
     <div class="container mx-auto flex flex-col md:flex-row items-center">
-      <div class="md:w-1/2">
-        <h1 class="text-4xl font-bold mb-4">Tworzymy technologię, która napędza przyszłość</h1>
-        <p class="mb-6">Innowacyjne rozwiązania cyfrowe dla klientów na całym świecie.</p>
-        <a href="#contact" class="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700">Poznaj nas</a>
+      <div class="md:w-1/2 text-center md:text-left">
+        <h1 class="text-5xl font-bold mb-6 gold-text">Tworzymy technologię, która napędza przyszłość</h1>
+        <p class="mb-6 text-lg">Innowacyjne rozwiązania cyfrowe dla klientów na całym świecie.</p>
+        <a href="#contact" class="gradient-btn text-white px-8 py-4 rounded-lg shadow-lg">Poznaj nas</a>
       </div>
-      <div class="md:w-1/2 mt-8 md:mt-0">
-        <div id="hero-animation" class="w-full h-64 md:h-96"></div>
+      <div class="md:w-1/2 mt-10 md:mt-0">
+        <div id="hero-animation" class="w-full h-72 md:h-96"></div>
       </div>
     </div>
   </section>
 
   <!-- O nas -->
-  <section id="about" class="py-20 container mx-auto">
-    <h2 class="text-3xl font-bold mb-6">O nas</h2>
-    <p class="mb-4">TechCodeStudio to nowoczesne studio technologiczne, które tworzy innowacyjne rozwiązania cyfrowe dla klientów na całym świecie. Specjalizujemy się w:</p>
-    <ul class="list-disc list-inside mb-4">
-      <li>projektowaniu i tworzeniu aplikacji mobilnych i webowych,</li>
-      <li>budowaniu stron internetowych szytych na miarę,</li>
-      <li>rozwijaniu własnych produktów cyfrowych opartych o sztuczną inteligencję i automatyzację.</li>
-    </ul>
-    <p class="mb-4">Naszą misją jest łączenie technologii i kreatywności, aby dostarczać rozwiązania, które nie tylko wyglądają nowocześnie, ale przede wszystkim realnie wspierają biznes i użytkowników.</p>
-    <p>Dzięki globalnemu podejściu i pracy w środowisku online obsługujemy klientów z Polski, Europy i całego świata. Każdy projekt traktujemy indywidualnie – od analizy potrzeb, przez projekt graficzny i implementację, aż po długofalowe wsparcie techniczne.</p>
-    <p class="mt-4 font-bold">💡 TechCodeStudio – Tworzymy technologię, która napędza przyszłość.</p>
-  </section>
-
-  <!-- Usługi -->
-  <section id="services" class="bg-gray-50 py-20">
-    <div class="container mx-auto">
-      <h2 class="text-3xl font-bold mb-6">Nasze usługi</h2>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-white p-6 rounded shadow hover:shadow-lg transition">
-          <h3 class="font-bold mb-2">Aplikacje mobilne i webowe</h3>
-          <p>Projektowanie i tworzenie aplikacji na miarę potrzeb klienta.</p>
-        </div>
-        <div class="bg-white p-6 rounded shadow hover:shadow-lg transition">
-          <h3 class="font-bold mb-2">Strony internetowe</h3>
-          <p>Budowanie nowoczesnych stron internetowych z indywidualnym designem.</p>
-        </div>
-        <div class="bg-white p-6 rounded shadow hover:shadow-lg transition">
-          <h3 class="font-bold mb-2">Produkty AI i automatyzacja</h3>
-          <p>Tworzenie własnych rozwiązań cyfrowych opartych o sztuczną inteligencję.</p>
-        </div>
+  <section id="about" class="py-20 container mx-auto text-center">
+    <h2 class="text-4xl font-bold mb-10 gold-text">O nas</h2>
+    <p class="mb-6 max-w-3xl mx-auto">TechCodeStudio to nowoczesne studio technologiczne, które tworzy innowacyjne rozwiązania cyfrowe dla klientów na całym świecie.</p>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition">
+        <h3 class="font-bold text-lg mb-2">Aplikacje mobilne</h3>
+        <p>Projektowanie i rozwój aplikacji na Android i iOS.</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition">
+        <h3 class="font-bold text-lg mb-2">Strony internetowe</h3>
+        <p>Nowoczesne, szybkie i responsywne strony dla biznesu.</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition">
+        <h3 class="font-bold text-lg mb-2">Rozwiązania AI</h3>
+        <p>Automatyzacja i inteligentne systemy wspierające biznes.</p>
       </div>
     </div>
   </section>
 
   <!-- Projekty -->
-  <section id="projects" class="py-20 container mx-auto">
-    <h2 class="text-3xl font-bold mb-6">Nasze projekty</h2>
-    <div class="bg-gray-100 p-6 rounded shadow">
-      <h3 class="text-2xl font-bold mb-2">🚀 TaxMindAi</h3>
-      <p class="mb-4">W TechCodeStudio nie tylko tworzymy rozwiązania dla naszych klientów, ale również rozwijamy własne produkty cyfrowe. Jednym z nich jest aplikacja <strong>TaxMindAi</strong> – innowacyjne narzędzie, które łączy nowoczesne technologie z prostotą użytkowania.</p>
-      <p class="mb-2"><strong>👉 Czym jest TaxMindAi?</strong><br>
-      TaxMindAi to inteligentna aplikacja wspierająca użytkowników w zarządzaniu podatkami, finansami i planowaniem. Dzięki zastosowaniu algorytmów sztucznej inteligencji zapewnia szybki dostęp do kluczowych informacji oraz praktyczne rozwiązania w codziennym życiu.</p>
-      <p class="mb-2"><strong>👉 Co wyróżnia TaxMindAi?</strong></p>
-      <ul class="list-disc list-inside mb-4">
-        <li>Intuicyjny interfejs i prostota obsługi,</li>
-        <li>Możliwość działania globalnego,</li>
-        <li>W pełni responsywna aplikacja działająca na różnych urządzeniach,</li>
-        <li>Dostępna przez stronę internetową: TaxMindAi.</li>
-      </ul>
-      <p class="font-bold">💡 W TechCodeStudio wierzymy, że najlepsze projekty dopiero przed nami.</p>
+  <section id="projects" class="bg-gray-50 py-20">
+    <div class="container mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-10 gold-text">Nasze projekty</h2>
+      <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition max-w-4xl mx-auto">
+        <h3 class="text-2xl font-bold mb-4">🚀 TaxMindAi</h3>
+        <p class="mb-4">Innowacyjne narzędzie łączące technologię i prostotę w zarządzaniu podatkami.</p>
+        <ul class="list-disc list-inside text-left mx-auto max-w-md mb-4">
+          <li>Intuicyjny interfejs i prostota obsługi</li>
+          <li>Możliwość działania globalnego</li>
+          <li>W pełni responsywna aplikacja</li>
+        </ul>
+        <a href="https://taxmindai.github.io/TaxMindAi/" target="_blank" class="gradient-btn text-white px-6 py-3 rounded-lg shadow">Zobacz projekt</a>
+      </div>
     </div>
   </section>
 
   <!-- Kontakt -->
-  <section id="contact" class="bg-gray-50 py-20">
-    <div class="container mx-auto">
-      <h2 class="text-3xl font-bold mb-6">Kontakt</h2>
-      <form class="grid gap-6 md:grid-cols-2">
-        <input type="text" placeholder="Imię" class="p-3 border rounded w-full">
-        <input type="email" placeholder="E-mail" class="p-3 border rounded w-full">
-        <textarea placeholder="Wiadomość" class="p-3 border rounded w-full md:col-span-2"></textarea>
-        <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 md:col-span-2">Wyślij</button>
-      </form>
-      <p class="mt-6">E-mail: techcodestudio@gmail.com</p>
-    </div>
+  <section id="contact" class="py-20 container mx-auto text-center">
+    <h2 class="text-4xl font-bold mb-10 gold-text">Kontakt</h2>
+    <form class="grid gap-6 md:grid-cols-2 max-w-3xl mx-auto">
+      <input type="text" placeholder="Imię" class="p-3 border rounded w-full">
+      <input type="email" placeholder="E-mail" class="p-3 border rounded w-full">
+      <textarea placeholder="Wiadomość" class="p-3 border rounded w-full md:col-span-2"></textarea>
+      <button type="submit" class="gradient-btn text-white px-8 py-3 rounded-lg shadow md:col-span-2">Wyślij</button>
+    </form>
+    <p class="mt-6">📧 E-mail: <a href="mailto:techcodestudio@gmail.com" class="hover:underline gold-text">techcodestudio@gmail.com</a></p>
   </section>
 
   <!-- Footer -->
   <footer class="bg-gray-900 text-white py-6 text-center">
-    © 2025 TechCodeStudio. Wszystkie prawa zastrzeżone.
+    © 2025 <span class="gold-text">TechCodeStudio</span>. Wszystkie prawa zastrzeżone.
   </footer>
 
   <!-- Lottie Animation Script -->
@@ -119,7 +131,12 @@
       renderer: 'svg',
       loop: true,
       autoplay: true,
-      path: 'animation_techcodestudio.json' // Twój plik Lottie JSON
+      path: 'animation_techcodestudio.json'
+    });
+
+    // mobile menu
+    document.getElementById("menu-btn").addEventListener("click", function(){
+      document.getElementById("mobile-menu").classList.toggle("hidden");
     });
   </script>
 
