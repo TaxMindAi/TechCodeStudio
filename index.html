@@ -1,124 +1,187 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TechCodeStudio</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.3/dist/tailwind.min.css" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollreveal/4.0.9/scrollreveal.min.js"></script>
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TechCodeStudio — Nowoczesne Studio Technologiczne</title>
+  <meta name="description" content="TechCodeStudio tworzy innowacyjne rozwiązania cyfrowe: aplikacje mobilne, strony internetowe, produkty AI i automatyzacje." />
+  <link rel="icon" href="favicon.png" />
   <style>
-    body {
-      background: linear-gradient(135deg, #002d24, #004d40);
-      color: #fff;
-      font-family: 'Poppins', sans-serif;
+    :root{
+      --bg:#0a0f1a;
+      --card:#0f1928;
+      --muted:#9fb4c8;
+      --text:#e0e7ff;
+      --accent:#4f46e5;
+      --accent-2:#6366f1;
+      --glass: rgba(255,255,255,0.03);
     }
-    .glass {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    .btn-gradient {
-      background: linear-gradient(135deg, #004d40, #00c896);
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 20px rgba(0, 200, 150, 0.3);
-    }
-    .btn-gradient:hover {
-      transform: translateY(-2px) scale(1.05);
-      box-shadow: 0 6px 25px rgba(0, 200, 150, 0.5);
-    }
-    .gold-text {
-      color: #d4af37;
-    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;color:var(--text);background:linear-gradient(180deg,var(--bg),#0d1323);-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:20px}
+
+    /* NAV */
+    header{position:sticky;top:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.15));backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,0.05);z-index:40}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{height:52px;width:auto;border-radius:8px}
+    .brand h1{font-size:20px;margin:0}
+    .nav-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .btn{background:var(--card);border:1px solid rgba(255,255,255,0.04);color:var(--text);padding:10px 16px;border-radius:14px;cursor:pointer;transition:all .18s;box-shadow:0 6px 18px rgba(2,6,23,.4)}
+    .btn:hover{transform:translateY(-3px)}
+    .btn-cta{background:linear-gradient(180deg,var(--accent),var(--accent-2));border:none;color:white;font-weight:600}
+
+    /* HERO */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:56px 0}
+    .hero-left h2{font-size:36px;margin:0 0 12px}
+    .lead{color:var(--muted);max-width:760px}
+    .actions{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
+
+    /* SEKCJE */
+    section{margin-top:60px}
+    h3.section-title{font-size:28px;margin-bottom:18px;text-align:center}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+    .card{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.05)}
+    .card h4{margin:0 0 8px}
+    .muted{color:var(--muted)}
+
+    /* Modal */
+    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.85);z-index:120;overflow:auto;padding:20px}
+    .modal.open{display:flex}
+    .modal-card{width:min(980px,96vw);max-height:90vh;overflow:auto;background:linear-gradient(180deg,#0a0f1a,#0d1323);border-radius:14px;padding:20px;border:1px solid rgba(255,255,255,0.04)}
+
+    /* Footer */
+    footer{padding:28px 0;color:var(--muted);border-top:1px solid rgba(255,255,255,0.02);text-align:center}
+
+    /* Animacja Lottie */
+    .anim-box{background:linear-gradient(180deg,rgba(255,255,255,0.01),rgba(255,255,255,0.02));border-radius:12px;padding:12px;border:1px dashed rgba(255,255,255,0.03);display:grid;place-items:center;height:240px}
+
+    @media (max-width:880px){.hero{grid-template-columns:1fr;gap:18px}.brand img{height:44px}.nav-inner{padding:10px}}
   </style>
 </head>
 <body>
-
-  <!-- Navbar -->
-  <header class="glass fixed top-0 w-full z-50">
-    <div class="container mx-auto flex justify-between items-center py-4 px-6">
-      <div class="flex items-center space-x-3">
-        <img src="taxmind_logo.png" alt="Logo" class="h-10">
-        <span class="text-2xl font-bold gold-text">TechCodeStudio</span>
+  <header>
+    <div class="container nav-inner">
+      <div class="brand">
+        <img src="logo_techcodestudio.png" alt="TechCodeStudio logo" />
+        <div>
+          <h1>TechCodeStudio</h1>
+          <div class="small">Tworzymy technologię, która napędza przyszłość</div>
+        </div>
       </div>
-      <nav class="hidden md:flex space-x-6">
-        <a href="#about" class="hover:text-[#00c896]">O nas</a>
-        <a href="#services" class="hover:text-[#00c896]">Usługi</a>
-        <a href="#projects" class="hover:text-[#00c896]">Projekty</a>
-        <a href="#contact" class="hover:text-[#00c896]">Kontakt</a>
+      <nav class="nav-actions">
+        <button class="btn btn-cta" onclick="scrollToSection('about')">O nas</button>
+        <button class="btn btn-cta" id="openProjectsBtn">Nasze projekty</button>
+        <button class="btn btn-cta" onclick="scrollToSection('contact')">Kontakt</button>
       </nav>
-      <button class="md:hidden text-2xl">☰</button>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="h-screen flex items-center justify-center text-center px-6">
-    <div>
-      <h1 class="text-5xl md:text-6xl font-bold gold-text mb-6" data-sr>Tworzymy technologie przyszłości</h1>
-      <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto" data-sr>Nowoczesne rozwiązania cyfrowe dla firm i startupów na całym świecie.</p>
-      <a href="#services" class="btn-gradient text-white px-8 py-4 rounded-lg font-semibold" data-sr>Poznaj nasze usługi</a>
-    </div>
-  </section>
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-left">
+        <h2>TechCodeStudio — Nowoczesne studio technologiczne</h2>
+        <p class="lead">
+Tworzymy innowacyjne rozwiązania cyfrowe dla klientów na całym świecie. Specjalizujemy się w aplikacjach mobilnych, stronach internetowych oraz produktach cyfrowych opartych o sztuczną inteligencję i automatyzację.<br><br>
+Naszą misją jest łączenie technologii i kreatywności, aby dostarczać rozwiązania, które realnie wspierają biznes i użytkowników.
+        </p>
+        <div class="actions">
+          <button class="btn btn-cta" onclick="scrollToSection('contact')">Skontaktuj się z nami</button>
+        </div>
+      </div>
+      <div>
+        <div class="anim-box" id="heroAnimation">
+          <!-- miejsce na animację Lottie JSON -->
+          <div style="color:var(--muted)">Animacja Lottie tutaj</div>
+        </div>
+      </div>
+    </section>
 
-  <!-- O nas -->
-  <section id="about" class="py-24 container mx-auto px-6 text-center">
-    <h2 class="text-4xl font-bold mb-10 gold-text" data-sr>O nas</h2>
-    <p class="max-w-3xl mx-auto text-gray-300 mb-10" data-sr>TechCodeStudio to studio technologiczne, które projektuje aplikacje mobilne, strony internetowe i systemy AI wspierające biznes.</p>
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="glass p-6 rounded-2xl shadow-lg" data-sr>
-        <h3 class="text-xl font-bold mb-2">Aplikacje mobilne</h3>
-        <p>Nowoczesne aplikacje na Android i iOS z naciskiem na UX.</p>
+    <!-- O NAS -->
+    <section id="about">
+      <h3 class="section-title">O nas</h3>
+      <p class="lead">
+TechCodeStudio to nowoczesne studio technologiczne, które tworzy innowacyjne rozwiązania cyfrowe dla klientów na całym świecie. Każdy projekt traktujemy indywidualnie – od analizy potrzeb, przez projekt graficzny i implementację, aż po długofalowe wsparcie techniczne.
+      </p>
+    </section>
+  </main>
+
+  <!-- MODAL NASZE PROJEKTY -->
+  <div id="projectsModal" class="modal" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px">
+        <h3>Nasze projekty</h3>
+        <button class="btn" id="closeProjects">Zamknij</button>
       </div>
-      <div class="glass p-6 rounded-2xl shadow-lg" data-sr>
-        <h3 class="text-xl font-bold mb-2">Strony internetowe</h3>
-        <p>Szybkie, estetyczne i responsywne witryny biznesowe.</p>
-      </div>
-      <div class="glass p-6 rounded-2xl shadow-lg" data-sr>
-        <h3 class="text-xl font-bold mb-2">Rozwiązania AI</h3>
-        <p>Inteligentne systemy i automatyzacja procesów biznesowych.</p>
+      <div class="cards">
+        <div class="card">
+          <h4>TaxMindAi</h4>
+          <p class="muted">
+Inteligentna aplikacja wspierająca użytkowników w zarządzaniu podatkami i finansami.  
+• Intuicyjny interfejs i prostota obsługi  
+• Działanie globalne  
+• Responsywna i dostępna online
+          </p>
+        </div>
+        <!-- kolejne projekty można łatwo dodać -->
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- Projekty -->
-  <section id="projects" class="py-24 bg-[#001f1a]">
-    <div class="container mx-auto text-center px-6">
-      <h2 class="text-4xl font-bold mb-12 gold-text" data-sr>Nasze projekty</h2>
-      <div class="glass p-10 rounded-2xl shadow-xl max-w-4xl mx-auto" data-sr>
-        <h3 class="text-2xl font-bold mb-4">🚀 TaxMindAI</h3>
-        <p class="mb-6">Innowacyjne narzędzie do globalnych rozliczeń podatkowych i finansowych.</p>
-        <a href="https://taxmindai.github.io/TaxMindAi/" target="_blank" class="btn-gradient px-6 py-3 rounded-lg text-white">Zobacz projekt</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Kontakt -->
-  <section id="contact" class="py-24 container mx-auto px-6 text-center">
-    <h2 class="text-4xl font-bold mb-10 gold-text" data-sr>Kontakt</h2>
-    <form class="grid gap-6 md:grid-cols-2 max-w-3xl mx-auto glass p-8 rounded-2xl">
-      <input type="text" placeholder="Imię" class="p-3 rounded bg-transparent border border-gray-500">
-      <input type="email" placeholder="E-mail" class="p-3 rounded bg-transparent border border-gray-500">
-      <textarea placeholder="Wiadomość" class="p-3 rounded bg-transparent border border-gray-500 md:col-span-2"></textarea>
-      <button type="submit" class="btn-gradient text-white px-8 py-3 rounded-lg font-semibold md:col-span-2">Wyślij</button>
+  <!-- KONTAKT -->
+  <section id="contact" class="container">
+    <h3 class="section-title">Kontakt</h3>
+    <p class="lead">Skontaktuj się z nami w sprawie projektów i współpracy:</p>
+    <form style="display:flex;flex-direction:column;gap:12px;max-width:500px;margin:0 auto">
+      <input type="text" placeholder="Imię i nazwisko" required style="padding:10px;border-radius:8px;border:none;background:var(--card);color:var(--text)">
+      <input type="email" placeholder="E-mail" required style="padding:10px;border-radius:8px;border:none;background:var(--card);color:var(--text)">
+      <textarea placeholder="Twoja wiadomość" rows="4" style="padding:10px;border-radius:8px;border:none;background:var(--card);color:var(--text)"></textarea>
+      <button type="submit" class="btn btn-cta">Wyślij wiadomość</button>
     </form>
-    <p class="mt-6">📧 E-mail: <a href="mailto:techcodestudio@gmail.com" class="gold-text hover:underline">techcodestudio@gmail.com</a></p>
+    <div style="text-align:center;margin-top:20px">
+      <h4>Znajdź nas w social media:</h4>
+      <div style="margin-top:12px;">
+        <a href="#" target="_blank" style="margin:0 10px;"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Facebook_icon.svg" width="40" height="40" alt="Facebook"></a>
+        <a href="#" target="_blank" style="margin:0 10px;"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" width="40" height="40" alt="Instagram"></a>
+        <a href="#" target="_blank" style="margin:0 10px;"><img src="https://upload.wikimedia.org/wikipedia/commons/5/53/X_logo_2023_original.svg" width="40" height="40" alt="X"></a>
+      </div>
+    </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="glass py-6 text-center text-gray-300">
-    © 2025 <span class="gold-text">TechCodeStudio</span>. Wszystkie prawa zastrzeżone.
+  <footer>
+    © <span id="year"></span> TechCodeStudio — projekt i wykonanie własne
   </footer>
 
+  <script src="https://unpkg.com/lottie-web@5.10.2/build/player/lottie.min.js"></script>
   <script>
-    // Animacje ScrollReveal
-    ScrollReveal().reveal('[data-sr]', {
-      distance: '40px',
-      duration: 1000,
-      easing: 'ease-out',
-      origin: 'bottom',
-      interval: 100
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Lottie animacja – miejsce na Twój plik JSON
+    // lottie.loadAnimation({
+    //   container: document.getElementById('heroAnimation'),
+    //   renderer: 'svg',
+    //   loop: true,
+    //   autoplay: true,
+    //   path: 'animation_techcodestudio.json'
+    // });
+
+    // Modal Projekty
+    const projectsModal = document.getElementById('projectsModal');
+    document.getElementById('openProjectsBtn').addEventListener('click', ()=> projectsModal.classList.add('open'));
+    document.getElementById('closeProjects').addEventListener('click', ()=> projectsModal.classList.remove('open'));
+    projectsModal.addEventListener('click', e=>{if(e.target===projectsModal) projectsModal.classList.remove('open')});
+
+    // Scroll do sekcji
+    function scrollToSection(id){
+      document.getElementById(id).scrollIntoView({behavior:'smooth'});
+    }
+
+    // Zamknięcie modali ESC
+    document.addEventListener('keydown', e=>{
+      if(e.key==='Escape'){ projectsModal.classList.remove('open'); }
     });
   </script>
-
 </body>
 </html>
