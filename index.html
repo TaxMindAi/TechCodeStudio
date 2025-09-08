@@ -4,139 +4,119 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TechCodeStudio</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.6/lottie.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.3/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollreveal/4.0.9/scrollreveal.min.js"></script>
 
   <style>
-    html {
-      scroll-behavior: smooth;
+    body {
+      background: linear-gradient(135deg, #002d24, #004d40);
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
     }
-    .gradient-btn {
-      background: linear-gradient(135deg, #004d40, #00796b);
+    .glass {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .btn-gradient {
+      background: linear-gradient(135deg, #004d40, #00c896);
       transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0, 200, 150, 0.3);
     }
-    .gradient-btn:hover {
-      background: linear-gradient(135deg, #00796b, #004d40);
-      transform: translateY(-2px);
+    .btn-gradient:hover {
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 6px 25px rgba(0, 200, 150, 0.5);
     }
     .gold-text {
       color: #d4af37;
     }
-    .hero-bg {
-      background: linear-gradient(rgba(0, 61, 43, 0.9), rgba(0, 61, 43, 0.9)),
-                  url('bg-tech.jpg') center/cover no-repeat;
-    }
   </style>
 </head>
-<body class="font-sans text-gray-800">
+<body>
 
-  <!-- Header -->
-  <header class="bg-gray-900 text-white sticky top-0 z-50 shadow-lg">
-    <div class="container mx-auto flex justify-between items-center p-4">
-      <div class="flex items-center">
-        <img src="logo_techcodestudio.png" alt="TechCodeStudio" class="h-12 mr-3">
-        <span class="font-bold text-xl gold-text">TechCodeStudio</span>
+  <!-- Navbar -->
+  <header class="glass fixed top-0 w-full z-50">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+      <div class="flex items-center space-x-3">
+        <img src="taxmind_logo.png" alt="Logo" class="h-10">
+        <span class="text-2xl font-bold gold-text">TechCodeStudio</span>
       </div>
       <nav class="hidden md:flex space-x-6">
-        <a href="#about" class="hover:text-[#d4af37] transition">O nas</a>
-        <a href="#services" class="hover:text-[#d4af37] transition">Usługi</a>
-        <a href="#projects" class="hover:text-[#d4af37] transition">Projekty</a>
-        <a href="#contact" class="hover:text-[#d4af37] transition">Kontakt</a>
+        <a href="#about" class="hover:text-[#00c896]">O nas</a>
+        <a href="#services" class="hover:text-[#00c896]">Usługi</a>
+        <a href="#projects" class="hover:text-[#00c896]">Projekty</a>
+        <a href="#contact" class="hover:text-[#00c896]">Kontakt</a>
       </nav>
-      <!-- Mobile menu -->
-      <div class="md:hidden">
-        <button id="menu-btn" class="text-white text-2xl">☰</button>
-      </div>
+      <button class="md:hidden text-2xl">☰</button>
     </div>
-    <nav id="mobile-menu" class="hidden flex-col bg-gray-800 text-white space-y-4 p-4 md:hidden">
-      <a href="#about">O nas</a>
-      <a href="#services">Usługi</a>
-      <a href="#projects">Projekty</a>
-      <a href="#contact">Kontakt</a>
-    </nav>
   </header>
 
   <!-- Hero -->
-  <section class="hero-bg text-white py-32">
-    <div class="container mx-auto flex flex-col md:flex-row items-center">
-      <div class="md:w-1/2 text-center md:text-left">
-        <h1 class="text-5xl font-bold mb-6 gold-text">Tworzymy technologię, która napędza przyszłość</h1>
-        <p class="mb-6 text-lg">Innowacyjne rozwiązania cyfrowe dla klientów na całym świecie.</p>
-        <a href="#contact" class="gradient-btn text-white px-8 py-4 rounded-lg shadow-lg">Poznaj nas</a>
-      </div>
-      <div class="md:w-1/2 mt-10 md:mt-0">
-        <div id="hero-animation" class="w-full h-72 md:h-96"></div>
-      </div>
+  <section class="h-screen flex items-center justify-center text-center px-6">
+    <div>
+      <h1 class="text-5xl md:text-6xl font-bold gold-text mb-6" data-sr>Tworzymy technologie przyszłości</h1>
+      <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto" data-sr>Nowoczesne rozwiązania cyfrowe dla firm i startupów na całym świecie.</p>
+      <a href="#services" class="btn-gradient text-white px-8 py-4 rounded-lg font-semibold" data-sr>Poznaj nasze usługi</a>
     </div>
   </section>
 
   <!-- O nas -->
-  <section id="about" class="py-20 container mx-auto text-center">
-    <h2 class="text-4xl font-bold mb-10 gold-text">O nas</h2>
-    <p class="mb-6 max-w-3xl mx-auto">TechCodeStudio to nowoczesne studio technologiczne, które tworzy innowacyjne rozwiązania cyfrowe dla klientów na całym świecie.</p>
+  <section id="about" class="py-24 container mx-auto px-6 text-center">
+    <h2 class="text-4xl font-bold mb-10 gold-text" data-sr>O nas</h2>
+    <p class="max-w-3xl mx-auto text-gray-300 mb-10" data-sr>TechCodeStudio to studio technologiczne, które projektuje aplikacje mobilne, strony internetowe i systemy AI wspierające biznes.</p>
     <div class="grid md:grid-cols-3 gap-8">
-      <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition">
-        <h3 class="font-bold text-lg mb-2">Aplikacje mobilne</h3>
-        <p>Projektowanie i rozwój aplikacji na Android i iOS.</p>
+      <div class="glass p-6 rounded-2xl shadow-lg" data-sr>
+        <h3 class="text-xl font-bold mb-2">Aplikacje mobilne</h3>
+        <p>Nowoczesne aplikacje na Android i iOS z naciskiem na UX.</p>
       </div>
-      <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition">
-        <h3 class="font-bold text-lg mb-2">Strony internetowe</h3>
-        <p>Nowoczesne, szybkie i responsywne strony dla biznesu.</p>
+      <div class="glass p-6 rounded-2xl shadow-lg" data-sr>
+        <h3 class="text-xl font-bold mb-2">Strony internetowe</h3>
+        <p>Szybkie, estetyczne i responsywne witryny biznesowe.</p>
       </div>
-      <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition">
-        <h3 class="font-bold text-lg mb-2">Rozwiązania AI</h3>
-        <p>Automatyzacja i inteligentne systemy wspierające biznes.</p>
+      <div class="glass p-6 rounded-2xl shadow-lg" data-sr>
+        <h3 class="text-xl font-bold mb-2">Rozwiązania AI</h3>
+        <p>Inteligentne systemy i automatyzacja procesów biznesowych.</p>
       </div>
     </div>
   </section>
 
   <!-- Projekty -->
-  <section id="projects" class="bg-gray-50 py-20">
-    <div class="container mx-auto text-center">
-      <h2 class="text-4xl font-bold mb-10 gold-text">Nasze projekty</h2>
-      <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition max-w-4xl mx-auto">
-        <h3 class="text-2xl font-bold mb-4">🚀 TaxMindAi</h3>
-        <p class="mb-4">Innowacyjne narzędzie łączące technologię i prostotę w zarządzaniu podatkami.</p>
-        <ul class="list-disc list-inside text-left mx-auto max-w-md mb-4">
-          <li>Intuicyjny interfejs i prostota obsługi</li>
-          <li>Możliwość działania globalnego</li>
-          <li>W pełni responsywna aplikacja</li>
-        </ul>
-        <a href="https://taxmindai.github.io/TaxMindAi/" target="_blank" class="gradient-btn text-white px-6 py-3 rounded-lg shadow">Zobacz projekt</a>
+  <section id="projects" class="py-24 bg-[#001f1a]">
+    <div class="container mx-auto text-center px-6">
+      <h2 class="text-4xl font-bold mb-12 gold-text" data-sr>Nasze projekty</h2>
+      <div class="glass p-10 rounded-2xl shadow-xl max-w-4xl mx-auto" data-sr>
+        <h3 class="text-2xl font-bold mb-4">🚀 TaxMindAI</h3>
+        <p class="mb-6">Innowacyjne narzędzie do globalnych rozliczeń podatkowych i finansowych.</p>
+        <a href="https://taxmindai.github.io/TaxMindAi/" target="_blank" class="btn-gradient px-6 py-3 rounded-lg text-white">Zobacz projekt</a>
       </div>
     </div>
   </section>
 
   <!-- Kontakt -->
-  <section id="contact" class="py-20 container mx-auto text-center">
-    <h2 class="text-4xl font-bold mb-10 gold-text">Kontakt</h2>
-    <form class="grid gap-6 md:grid-cols-2 max-w-3xl mx-auto">
-      <input type="text" placeholder="Imię" class="p-3 border rounded w-full">
-      <input type="email" placeholder="E-mail" class="p-3 border rounded w-full">
-      <textarea placeholder="Wiadomość" class="p-3 border rounded w-full md:col-span-2"></textarea>
-      <button type="submit" class="gradient-btn text-white px-8 py-3 rounded-lg shadow md:col-span-2">Wyślij</button>
+  <section id="contact" class="py-24 container mx-auto px-6 text-center">
+    <h2 class="text-4xl font-bold mb-10 gold-text" data-sr>Kontakt</h2>
+    <form class="grid gap-6 md:grid-cols-2 max-w-3xl mx-auto glass p-8 rounded-2xl">
+      <input type="text" placeholder="Imię" class="p-3 rounded bg-transparent border border-gray-500">
+      <input type="email" placeholder="E-mail" class="p-3 rounded bg-transparent border border-gray-500">
+      <textarea placeholder="Wiadomość" class="p-3 rounded bg-transparent border border-gray-500 md:col-span-2"></textarea>
+      <button type="submit" class="btn-gradient text-white px-8 py-3 rounded-lg font-semibold md:col-span-2">Wyślij</button>
     </form>
-    <p class="mt-6">📧 E-mail: <a href="mailto:techcodestudio@gmail.com" class="hover:underline gold-text">techcodestudio@gmail.com</a></p>
+    <p class="mt-6">📧 E-mail: <a href="mailto:techcodestudio@gmail.com" class="gold-text hover:underline">techcodestudio@gmail.com</a></p>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-white py-6 text-center">
+  <footer class="glass py-6 text-center text-gray-300">
     © 2025 <span class="gold-text">TechCodeStudio</span>. Wszystkie prawa zastrzeżone.
   </footer>
 
-  <!-- Lottie Animation Script -->
   <script>
-    var animation = lottie.loadAnimation({
-      container: document.getElementById('hero-animation'),
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      path: 'animation_techcodestudio.json'
-    });
-
-    // mobile menu
-    document.getElementById("menu-btn").addEventListener("click", function(){
-      document.getElementById("mobile-menu").classList.toggle("hidden");
+    // Animacje ScrollReveal
+    ScrollReveal().reveal('[data-sr]', {
+      distance: '40px',
+      duration: 1000,
+      easing: 'ease-out',
+      origin: 'bottom',
+      interval: 100
     });
   </script>
 
